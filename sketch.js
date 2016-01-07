@@ -17,6 +17,7 @@ function setup() {
   createCanvas(710, 400);
 
   // load video into computer memory
+
   ocean = createVideo('videos/Relaxing 1 min Video of A Tropical Beach with Blue Sky White Sand and Palm Tree.mp4');  
   ocean.loop();
   ocean.hide();
@@ -24,8 +25,9 @@ function setup() {
   // load image data
   img = loadImage("images/beaker.jpg");
   
-  	beakerX = 50;
-	beakerY = 50;
+  
+  	beakerX = 0;
+	beakerY = 0;
 	findStartingValue = true;
 	inImage = false;
 
@@ -40,10 +42,10 @@ function draw() {
 
 
   // show image
-  image(img,0,0);
+  image(img,beakerX,beakerY);
   
   
-  
+
   
   	if (mouseX > beakerX && mouseX < beakerX + 61 && mouseY > beakerY && mouseY < beakerY + 70)
 	{
@@ -51,7 +53,7 @@ function draw() {
 	}
 		
 
-	if (mousePressed == true && mouseButton == LEFT && inImage == true)
+	if (mouseIsPressed == true && mouseButton == LEFT && inImage == true)
 	{
 
 		if (findStartingValue == true)
