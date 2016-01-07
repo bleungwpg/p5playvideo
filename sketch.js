@@ -1,5 +1,11 @@
 var ocean;
 var beaker;
+var beakerX;
+var beakerY;
+var distanceX;
+var distanceY;
+var findStartingValue;
+var inImage;
 
 function preload() {
 
@@ -17,6 +23,11 @@ function setup() {
   
   // load image data
   img = loadImage("images/beaker.jpg");
+  
+  	beakerX = 50;
+	beakerY = 50;
+	findStartingValue = true;
+	inImage = false;
 
 }
 
@@ -30,6 +41,33 @@ function draw() {
 
   // show image
   image(img,0,0);
+  
+  
+  
+  
+  	if (mouseX > beakerX && mouseX < beakerX + 61 && mouseY > beakerY && mouseY < beakerY + 70)
+	{
+		inImage = true;
+	}
+		
+
+	if (mousePressed == true && mouseButton == LEFT && inImage == true)
+	{
+
+		if (findStartingValue == true)
+		{
+			distanceX = mouseX - beakerX;
+			distanceY = mouseY - beakerY;
+			findStartingValue = false;
+		}
+		beakerX = mouseX - distanceX;
+		beakerY = mouseY - distanceY;
+	}
+	else
+	{
+		findStartingValue = true;
+		inImage = false;
+	}
 }
 
 
